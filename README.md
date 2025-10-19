@@ -4,29 +4,28 @@ The objective is to Write an automated test for login functionality using a web 
 
 
 ## PROJECT REQUIREMENTS
-1. Automate the Workflow:
-    -URL: https://the-internet.herokuapp.com/login
-    -Valid Credentials:
-        -Username: "tomsmith"
-        -Password: "SuperSecretPassword!"
-    -Create Test Cases for:
-        -Valid login
-        -Invalid username
-        -Invalid password
-        -Missing username
-        -Missing password
-        -Missing username and password
-    -Assert on:
-        -Success message
-        -Error message
-        -URL redirection
-    -Design Pattern: Page Object Model.
-    -Framework: Hybrid (Modular + Data driven)
-    -Automation Tool: Playwright
-    -Programming language: Javascript
-    -Handle waits appropiately.
-    -Use clear assertions and error handling.
-    -Include a README file.
+1. URL: https://the-internet.herokuapp.com/login
+2. Valid Credentials:
+    - Username: "tomsmith"
+    - Password: "SuperSecretPassword!"
+3. Create Test Cases for:
+    - Valid login
+    - Invalid username
+    - Invalid password
+    - Missing username
+    - Missing password
+    - Missing username and password
+4. Assert on:
+    - Success message
+    - Error message
+    - URL redirection
+5. Design Pattern: Page Object Model.
+6. Framework: Hybrid (Modular + Data driven)
+7. Automation Tool: Playwright
+8. Programming language: Javascript
+9. Handle waits appropiately.
+10. Use clear assertions and error handling.
+11. Include a README file.
 
 
 ## PRE-REQUISITES AND DEPENDENCIES 📋
@@ -60,6 +59,12 @@ DEPENDENCIES:
 
 
 ## FOLDER STRUCTURE
+├── .API_Testing_Task/           # Part 3 - QA Automation Challenge 
+│   └── API Testing Task - Zero Copy Labs.postman_collection.json   #Collection
+│   └── API Testing Task - Zero Copy Labs.postman_test_run.json     #Results
+│   └── README.md                #Specific for API Testing Task
+├── .Spot_the_differences/       # Part 2 - QA Automation Test
+│   └── Images_differences.txt   
 ├── config/                      # Configuration values
 │   └── .env
 ├── data/                        # Data source
@@ -99,3 +104,8 @@ To run the test:
 ## AUTHOR
 
 * **Ángel Zavala Rebollo** - (https://github.com/angelzr4)
+
+
+## IMPORTANT NOTES!
+
+* **.API Testing Task** and **Spot the difference** folders contain the Part 2 and Part 3 of the QA Automation Test. Please refer to the respective folder for further information.

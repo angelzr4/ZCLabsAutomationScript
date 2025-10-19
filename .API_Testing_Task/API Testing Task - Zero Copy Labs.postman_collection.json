@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "7e933fc9-6a05-4a56-beff-9283af7f1655",
+		"name": "API Testing Task - Zero Copy Labs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49180530",
+		"_collection_link": "https://zavala102-2111485.postman.co/workspace/f0c3a22e-8be8-47a9-8452-25ec5e35713c/collection/49180530-7e933fc9-6a05-4a56-beff-9283af7f1655?action=share&source=collection_link&creator=49180530"
+	},
+	"item": [
+		{
+			"name": "List Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Validate response status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Validate response body content and structure",
+							"pm.test(\"Validate response body\", function () {",
+							"    let response = pm.response.json();",
+							"",
+							"    pm.expect(response).to.have.property(\"page\");",
+							"    pm.expect(response).to.have.property(\"per_page\");",
+							"    pm.expect(response).to.have.property(\"total\");",
+							"    pm.expect(response).to.have.property(\"total_pages\");",
+							"",
+							"    pm.expect(response).to.have.property(\"data\");",
+							"    (response.data).map(dataItems => {",
+							"        pm.expect(dataItems).to.have.property(\"id\");",
+							"        pm.expect(dataItems).to.have.property(\"email\");",
+							"        pm.expect(dataItems).to.have.property(\"first_name\");",
+							"        pm.expect(dataItems).to.have.property(\"last_name\");",
+							"        pm.expect(dataItems).to.have.property(\"avatar\");",
+							"    });",
+							"    ",
+							"    pm.expect(response).to.have.property(\"support\");",
+							"    pm.expect(response.support).to.have.property(\"url\");",
+							"    pm.expect(response.support).to.have.property(\"text\");",
+							"",
+							"    pm.expect(response).to.have.property(\"_meta\");",
+							"    pm.expect(response._meta).to.have.property(\"powered_by\");",
+							"    pm.expect(response._meta).to.have.property(\"upgrade_url\");",
+							"    pm.expect(response._meta).to.have.property(\"docs_url\");",
+							"    pm.expect(response._meta).to.have.property(\"template_gallery\");",
+							"    pm.expect(response._meta).to.have.property(\"message\");",
+							"    pm.expect(response._meta).to.have.property(\"features\");",
+							"    pm.expect(response._meta).to.have.property(\"upgrade_cta\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/users?page=2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have page`=2`).\n\nThe successful GET response will have a `200 OK` status, and should include the following response body structure in JSON:\n\n``` json\n{\n    \"page\": 2,\n    \"per_page\": 6,\n    \"total\": 12,\n    \"total_pages\": 2,\n    \"data\": [\n        {\n            \"id\": 7,\n            \"email\": \"michael.lawson@reqres.in\",\n            \"first_name\": \"Michael\",\n            \"last_name\": \"Lawson\",\n            \"avatar\": \"https://reqres.in/img/faces/7-image.jpg\"\n        },\n        {\n            \"id\": 8,\n            \"email\": \"lindsay.ferguson@reqres.in\",\n            \"first_name\": \"Lindsay\",\n            \"last_name\": \"Ferguson\",\n            \"avatar\": \"https://reqres.in/img/faces/8-image.jpg\"\n        },\n        {\n            \"id\": 9,\n            \"email\": \"tobias.funke@reqres.in\",\n            \"first_name\": \"Tobias\",\n            \"last_name\": \"Funke\",\n            \"avatar\": \"https://reqres.in/img/faces/9-image.jpg\"\n        },\n        {\n            \"id\": 10,\n            \"email\": \"byron.fields@reqres.in\",\n            \"first_name\": \"Byron\",\n            \"last_name\": \"Fields\",\n            \"avatar\": \"https://reqres.in/img/faces/10-image.jpg\"\n        },\n        {\n            \"id\": 11,\n            \"email\": \"george.edwards@reqres.in\",\n            \"first_name\": \"George\",\n            \"last_name\": \"Edwards\",\n            \"avatar\": \"https://reqres.in/img/faces/11-image.jpg\"\n        },\n        {\n            \"id\": 12,\n            \"email\": \"rachel.howell@reqres.in\",\n            \"first_name\": \"Rachel\",\n            \"last_name\": \"Howell\",\n            \"avatar\": \"https://reqres.in/img/faces/12-image.jpg\"\n        }\n    ],\n    \"support\": {\n        \"url\": \"https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral\",\n        \"text\": \"Tired of writing endless social media content? Let Content Caddy generate it for you.\"\n    },\n    \"_meta\": {\n        \"powered_by\": \"🚀 ReqRes - Deploy backends in 30 seconds\",\n        \"upgrade_url\": \"https://app.reqres.in/upgrade\",\n        \"docs_url\": \"https://reqres.in\",\n        \"template_gallery\": \"https://app.reqres.in/templates\",\n        \"message\": \"This API is powered by ReqRes. Deploy your own backend in 30 seconds!\",\n        \"features\": [\n            \"30 Second Backend Templates\",\n            \"Custom API Endpoints\",\n            \"Data Persistence\",\n            \"Real-time Analytics\"\n        ],\n        \"upgrade_cta\": \"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence\"\n    }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"/* Create data provider from script\r",
+							"\r",
+							"const names = [\"Pita\", \"John\", \"Jane\", \"Doe\", \"Smith\"];\r",
+							"const jobs = [\"Guard\", \"Doctor\", \"Engineer\", \"Artist\", \"Teacher\"];\r",
+							"\r",
+							"pm.collectionVariables.set(\"randomName\", names[Math.floor(Math.random() * names.length)]);\r",
+							"pm.collectionVariables.set(\"randomJob\", jobs[Math.floor(Math.random() * jobs.length)]);\r",
+							"\r",
+							"*/"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Validate response status code\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"//Validate response body content and structure\r",
+							"pm.test(\"Validate response body\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"name\");\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"job\");\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"id\");\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"createdAt\");\r",
+							"    pm.expect(pm.response.json().name).to.eql(getRequestBody().name);\r",
+							"    pm.expect(pm.response.json().job).to.eql(getRequestBody().job);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"//Function to get request body values dinamically in JSON format.\r",
+							"function getRequestBody() {\r",
+							"    let body = pm.request.body.raw.split(',');\r",
+							"\r",
+							"    let startName = (body[0].indexOf(':')+3);\r",
+							"    let endName = (body[0].length)-1;\r",
+							"    let startJob = (body[1].indexOf(':')+3);\r",
+							"    let endJob = (body[1].length)-4;\r",
+							"\r",
+							"    let name = body[0].substring(startName, endName);\r",
+							"    let job = body[1].substring(startJob, endJob);\r",
+							"\r",
+							"    return {name, job};\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"job\": \"{{$randomJobTitle}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/users",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"users"
+					]
+				},
+				"description": "This is a POST request and it is used to \"create\" data on an endpoint.\n\nThe successful POST response will have a `201 CREATED` status, and should include the following response body structure in JSON:\n\n``` json\n{\n    \"name\": \"morpheus\",\n    \"job\": \"leader\",\n    \"id\": \"388\",\n    \"createdAt\": \"2025-10-19T14:51:34.368Z\"\n}\n\n ```\n\nThe request body values are generated randomly ."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Validate response status code\r",
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"//Validate response body content and structure\r",
+							"pm.test(\"Validate response body\", function () {\r",
+							"    pm.expect(pm.response.text()).to.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "reqres-free-v1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/users/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				},
+				"description": "This is a DELETE request and it is used to \"delete\" data on an endpoint.\n\nThe successful DELETE response will have a `204 NO CONTENT` status, and response body must be empty."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://reqres.in/api"
+		}
+	]
+}

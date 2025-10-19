@@ -1,0 +1,23 @@
+Visual differences:
+
+1. "My Accounts" headings are spelled different.
+    - Image 1: "My Accounts"
+    - Image 2: "My Acounts" and include additional text which might be an addtional element.
+
+2. Account number is position different on screen.
+    - Image 1: Centered
+    - Image 2: Right-side of the screen
+
+3. Amount fo buttons available for user.
+    - Image 1: Three buttons: Transfer, Deposit, Pay Bills.
+    - Image 2: One Button: Transfer
+
+
+
+From the visual differences listed above, the following might affect the testing outcomes:
+1. "My Accounts" heading will fail the test if it is located by text. Object needs to be located by role and heading level.
+    Also, visual user experience could be impacted by the misspelled word.
+2. Account number position is irrelevant for the test status if the object is located by any unique attribute like: "id", "name", etc.
+    However, visual user experience could be impacted by the position of the element.
+3. Buttons availability will fail the test case since 2 objects will not be located.
+     Also, visual user experience could be impacted by the lack of possible functionalities.

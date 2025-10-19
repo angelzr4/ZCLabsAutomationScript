@@ -5,3 +5,10 @@ Commit: v1.0
 Changes: Official
 
 =========================================================================================================
+Commit: v2.0
+Changes:
+    - Updated README.md in root folder.
+    - Added ".API_Testing_Task" folder and files (part 3 - QA Test)
+    - Added ".Spot_the_differences" folder and files (part 2 - QA Test)
+
+=========================================================================================================

@@ -1,0 +1,133 @@
+{
+	"id": "6ec9a70f-3063-45f9-8e2f-4cd488c255b0",
+	"name": "API Testing Task - Zero Copy Labs",
+	"timestamp": "2025-10-19T15:21:32.346Z",
+	"collection_id": "49180530-7e933fc9-6a05-4a56-beff-9283af7f1655",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 6,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-10-19T15:21:30.767Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "1640a4a4-d713-4753-92fb-f8d5c958f42a",
+			"name": "List Users",
+			"url": "https://reqres.in/api/users?page=2",
+			"time": 171,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate response body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate response body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				171
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate response body": true
+				}
+			]
+		},
+		{
+			"id": "6f812c38-f587-4983-b880-8da0521baff0",
+			"name": "Create User",
+			"url": "https://reqres.in/api/users",
+			"time": 193,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Validate response body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate response body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				193
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Validate response body": true
+				}
+			]
+		},
+		{
+			"id": "bf34e51a-cdc4-40a0-947e-b9f6f949ca21",
+			"name": "Delete user",
+			"url": "https://reqres.in/api/users/2",
+			"time": 195,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Validate response body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate response body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				195
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Validate response body": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 559,
+	"collection": {
+		"requests": [
+			{
+				"id": "1640a4a4-d713-4753-92fb-f8d5c958f42a",
+				"method": "GET"
+			},
+			{
+				"id": "6f812c38-f587-4983-b880-8da0521baff0",
+				"method": "POST"
+			},
+			{
+				"id": "bf34e51a-cdc4-40a0-947e-b9f6f949ca21",
+				"method": "DELETE"
+			}
+		]
+	}
+}
